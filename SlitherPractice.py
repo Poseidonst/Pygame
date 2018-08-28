@@ -124,6 +124,7 @@ def gameLoop():
                 randAppleX = round(random.randrange(0, display_width - block_size)/10.0)*10.0
                 randAppleY = round(random.randrange(0, display_height - block_size)/10.0)*10.0
                 snakeLength += 1
+                print(snakeLength)
 
         clock.tick(FPS)
 
