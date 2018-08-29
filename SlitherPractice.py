@@ -96,7 +96,7 @@ def gameLoop():
 
         gameDisplay.fill(white)
 
-        AppleThickness = 30
+        AppleThickness = 200
         pygame.draw.rect(gameDisplay, red, [randAppleX, randAppleY, AppleThickness, AppleThickness])
 
         snakeHead = []

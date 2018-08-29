@@ -16,6 +16,11 @@ lead_y = 300
 lead_x_change = 0
 lead_y_change = 0
 
+lead2_x = 400
+lead2_y = 400
+lead2_x_change = 0
+lead2_y_change = 0
+
 clock = pygame.time.Clock()
 
 while not gameExit:
@@ -32,14 +37,24 @@ while not gameExit:
                 lead_y_change = -5
             if event.key == pygame.K_DOWN:
                 lead_y_change = 5
+            if event.key == pygame.K_a:
+                lead2_x_change = -5
+            if event.key == pygame.K_d:
+                lead2_x_change = 5
+            if event.key == pygame.K_w:
+                lead2_y_change = -5
+            if event.key == pygame.K_s:
+                lead2_y_change = 5
         if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT :
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_a or event.key == pygame.K_d :
                 lead_x_change = 0
-            if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+            if event.key == pygame.K_UP or event.key == pygame.K_DOWN or event.key == pygame.K_s or event.key == pygame.K_w:
                 lead_y_change = 0
 
     lead_x += lead_x_change
     lead_y += lead_y_change
+    lead2_x += lead2_x_change
+    lead2_y += lead2_y_change
 
     if lead_x > 800:
         lead_x = 0
@@ -53,6 +68,7 @@ while not gameExit:
 
     gameDisplay.fill(white)
     pygame.draw.rect(gameDisplay, black, [lead_x, lead_y, 10, 10])
+    pygame.draw.rect(gameDisplay, red, [lead2_x, lead2_y, 10, 10])
     pygame.display.update()
 
     clock.tick(60)
